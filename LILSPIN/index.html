@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIRRAa SPIN</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="casino-container">
+    <div class="chip chip1"></div>
+    <div class="chip chip2"></div>
+    <div class="chip chip3"></div>
+    <div class="casino-header">
+        <div class="logo">LIRRAa SPIN</div>
+        <div class="balance-container">
+            Баланс: <span id="balance">100</span> токенов
+        </div>
+    </div>
+
+    <div class="controls">
+        <label for="bet">Ставка:</label>
+        <input type="number" id="bet" class="bet-input" value="1" min="1">
+        <label for="linesSelect" style="margin-left:6px">Линии:</label>
+        <select id="linesSelect" class="bet-input" style="width:140px">
+            <option value="1">1 (средняя)</option>
+            <option value="3">3 (верх/сред/низ)</option>
+            <option value="5" selected>5 (все основные)</option>
+        </select>
+        <div class="topup-row">
+            <button id="buyBtn" class="topup-btn">Купить токены</button>
+        </div>
+    </div>
+
+    <div class="slots">
+        <div class="reel" id="reel1"></div>
+        <div class="reel" id="reel2"></div>
+        <div class="reel" id="reel3"></div>
+        <!-- SVG overlay for paylines -->
+        <svg class="paylines" viewBox="0 0 300 100" preserveAspectRatio="none" aria-hidden="true">
+            <!-- 0: Middle -->
+            <path id="line-0" d="M50 50 L150 50 L250 50" />
+            <!-- 1: Top -->
+            <path id="line-1" d="M50 20 L150 20 L250 20" />
+            <!-- 2: Bottom -->
+            <path id="line-2" d="M50 80 L150 80 L250 80" />
+            <!-- 3: Diag TL-BR -->
+            <path id="line-3" d="M50 20 L150 50 L250 80" />
+            <!-- 4: Diag BL-TR -->
+            <path id="line-4" d="M50 80 L150 50 L250 20" />
+        </svg>
+    </div>
+
+    <div class="bottom-panel">
+        <button id="spinBtn">SPIN<span class="shine"></span></button>
+        <div id="result"></div>
+    </div>
+
+    <!-- Buy modal (stub) -->
+    <div id="buyModal" class="modal" aria-hidden="true">
+        <div class="modal-content">
+            <button class="modal-close" id="buyClose">✕</button>
+            <h3>Купить токены (1₽ = 1 токен)</h3>
+            <div class="modal-grid">
+                <button class="buy-amount" data-amount="10">10</button>
+                <button class="buy-amount" data-amount="50">50</button>
+                <button class="buy-amount" data-amount="100">100</button>
+                <button class="buy-amount" data-amount="500">500</button>
+            </div>
+            <div style="margin-top:12px;text-align:right">
+                <button id="confirmBuy" class="confirm-btn">Перейти к оплате</button>
+            </div>
+            <p class="small">Это демонстрационная заглушка. Интегрируйте платёжный провайдер для реальных покупок.</p>
+        </div>
+    </div>
+
+    <div class="footer-note">Удачи! Правила: 3 в ряд — выигрыша (победная линия: верхняя), scatter дает бесплатные спины.</div>
+</div>
+
+<audio id="spinSound" src="sounds/spin.mp3"></audio>
+<audio id="stopSound" src="sounds/stop.mp3"></audio>
+<audio id="winSound" src="sounds/win.mp3"></audio>
+
+<script src="script.js"></script>
+</body>
+</html>
