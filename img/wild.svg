@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="256" height="256">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffd36e"/>
+      <stop offset="1" stop-color="#ffb000"/>
+    </linearGradient>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+  <g filter="url(#shadow)">
+    <circle cx="100" cy="100" r="92" fill="url(#g1)" />
+    <circle cx="100" cy="100" r="86" fill="rgba(255,255,255,0.06)" />
+    <text x="50%" y="58%" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-weight="900" font-size="100" fill="#fff" stroke="#b07b00" stroke-width="2">W</text>
+  </g>
+</svg>
